@@ -697,9 +697,20 @@
     }
 
     /* ── RESPONSIVE ── */
+    
+    /* ── HAMBURGER ── */
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 201; position: relative; }
+    .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: transform 0.3s, opacity 0.3s; }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
     @media (max-width: 768px) {
       nav { padding: 1rem 1.4rem; }
-      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .nav-links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.97); flex-direction: column; justify-content: center; align-items: center; gap: 2.4rem; z-index: 200; }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 1.05rem; letter-spacing: 0.12em; color: var(--ink); }
 
       .hero { grid-template-columns: 1fr; }
       .hero-left { padding: 7rem 1.5rem 3rem; }
@@ -751,6 +762,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
       </a></li>
     </ul>
+      <button class="nav-toggle" aria-label="メニュー" id="navToggle"><span></span><span></span><span></span></button>
   </nav>
 
   <!-- HERO -->
@@ -1015,6 +1027,23 @@
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'auto';
     }
+  </script>
+  <script>
+    (function(){
+      var toggle = document.getElementById('navToggle');
+      var links  = document.querySelector('.nav-links');
+      if (!toggle || !links) return;
+      toggle.addEventListener('click', function(){
+        toggle.classList.toggle('open');
+        links.classList.toggle('open');
+      });
+      links.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          toggle.classList.remove('open');
+          links.classList.remove('open');
+        });
+      });
+    })();
   </script>
 </body>
 </html>
