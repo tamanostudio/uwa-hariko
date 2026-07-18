@@ -22,7 +22,6 @@
     .product-hero { padding-top: 80px; display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; }
     .product-photo-main { background: var(--off); overflow: hidden; }
     .product-photo-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .product-photo-placeholder { width: 100%; height: 100%; min-height: 60vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #e8e3dc 0%, #d4cfc8 100%); color: #a09890; font-size: 0.75rem; letter-spacing: 0.15em; }
     .product-info { padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center; }
     .product-eyebrow { font-size: 0.68rem; letter-spacing: 0.28em; color: var(--red); text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.7rem; }
     .product-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--red); }
@@ -40,7 +39,6 @@
     .gallery-item { aspect-ratio: 1; overflow: hidden; background: var(--gray); }
     .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
     .gallery-item:hover img { transform: scale(1.05); }
-    .gallery-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #e8e3dc 0%, #d4cfc8 100%); color: #a09890; font-size: 0.72rem; letter-spacing: 0.12em; }
     .section-label { font-size: 0.68rem; letter-spacing: 0.22em; color: var(--red); text-transform: uppercase; font-weight: 500; }
     .back-link { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.78rem; letter-spacing: 0.12em; color: var(--muted); text-decoration: none; margin-bottom: 2rem; transition: color 0.2s; }
     .back-link::before { content: '←'; color: var(--red); }
@@ -49,7 +47,13 @@
     .footer-brand { display: flex; align-items: center; gap: 0.7rem; }
     .footer-name { font-family: 'Noto Sans JP'; font-weight: 400; font-size: 0.95rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.7); }
     footer p { font-size: 0.7rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; }
-    @media (max-width: 768px) { nav { padding: 1rem 1.4rem; } .nav-links { display: none; } .product-hero { grid-template-columns: 1fr; } .product-info { padding: 3rem 1.5rem; } .gallery-section { padding: 4rem 1.5rem; } .gallery-grid { grid-template-columns: repeat(2, 1fr); } footer { flex-direction: column; gap: 1rem; text-align: center; } }
+    /* ── HAMBURGER ── */
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 201; position: relative; }
+    .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: transform 0.3s, opacity 0.3s; }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    @media (max-width: 768px) { nav { padding: 1rem 1.4rem; } .nav-toggle { display: block; } .nav-links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.97); flex-direction: column; justify-content: center; align-items: center; gap: 2.4rem; z-index: 200; } .nav-links.open { display: flex; } .nav-links a { font-size: 1.05rem; letter-spacing: 0.12em; color: var(--ink); } .product-hero { grid-template-columns: 1fr; } .product-info { padding: 3rem 1.5rem; } .gallery-section { padding: 4rem 1.5rem; } .gallery-grid { grid-template-columns: repeat(2, 1fr); } footer { flex-direction: column; gap: 1rem; text-align: center; } }
   </style>
 </head>
 <body>
@@ -62,14 +66,16 @@
     <ul class="nav-links">
       <li><a href="uwa-hariko.html#about">工房について</a></li>
       <li><a href="uwa-hariko.html#process">張子ができるまで</a></li>
-      <li><a href="uwa-hariko.html#products" style="color:var(--red);">作品</a></li>
+      <li><a href="works.html" style="color:var(--red);">作品</a></li>
       <li><a href="uwa-hariko.html#news">お知らせ</a></li>
       <li><a href="stores.html">委託店舗</a></li>
-      <li><a href="uwa-hariko.html#contact">お問い合わせ</a></li>
+      <li><a href="kashira.html">カシラ製作</a></li>
+      <li><a href="mailto:uwahariko@gmail.com">お問い合わせ</a></li>
       <li><a href="https://www.instagram.com/uwa_hariko/" target="_blank" rel="noopener" aria-label="Instagram">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
       </a></li>
     </ul>
+    <button class="nav-toggle" aria-label="メニュー" id="navToggle"><span></span><span></span><span></span></button>
   </nav>
 
   <div class="product-hero">
@@ -90,7 +96,7 @@
         </div>
         <div class="product-meta-row">
           <span class="product-meta-label">お問い合わせ</span>
-          <span class="product-meta-val"><a href="uwa-hariko.html#contact" style="color:var(--text);">お問い合わせフォーム</a></span>
+          <span class="product-meta-val"><a href="mailto:uwahariko@gmail.com" style="color:var(--text);">uwahariko@gmail.com</a></span>
         </div>
       </div>
     </div>
@@ -101,8 +107,6 @@
       <p class="section-label">Gallery</p>
       <div class="gallery-grid">
         <div class="gallery-item"><img src="darumamini2.jpg" alt="だるま"></div>
-        <div class="gallery-item"><div class="gallery-placeholder">写真</div></div>
-        <div class="gallery-item"><div class="gallery-placeholder">写真</div></div>
       </div>
     </div>
   </section>
@@ -120,5 +124,22 @@
     </div>
   </footer>
 
+  <script>
+    (function(){
+      var toggle = document.getElementById('navToggle');
+      var links  = document.querySelector('.nav-links');
+      if (!toggle || !links) return;
+      toggle.addEventListener('click', function(){
+        toggle.classList.toggle('open');
+        links.classList.toggle('open');
+      });
+      links.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          toggle.classList.remove('open');
+          links.classList.remove('open');
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
