@@ -53,10 +53,9 @@
       justify-content: space-between;
       align-items: center;
       padding: 1.1rem 3rem;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(0,0,0,0.07);
     }
+    nav::before { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.92); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
 
     .nav-brand {
       display: flex;
