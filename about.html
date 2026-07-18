@@ -86,6 +86,10 @@
       .two-col { grid-template-columns: 1fr; gap: 2.5rem; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
     }
+
+    .back-to-home { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; letter-spacing: 0.12em; color: var(--red); text-decoration: none; margin-bottom: 1.4rem; }
+    .back-to-home::before { content: '←'; }
+    .back-to-home:hover { opacity: 0.7; }
   </style>
 </head>
 <body>
@@ -113,6 +117,7 @@
 
   <div class="page-header">
     <div class="page-header-inner">
+      <a class="back-to-home" href="uwa-hariko.html">ホーム</a>
       <p class="page-eyebrow">About</p>
       <h1 class="page-title">工房について</h1>
       <p class="page-title-en">Our Workshop</p>
