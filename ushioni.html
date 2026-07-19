@@ -1,150 +1,149 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>牛鬼 — 宇和はりこ</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --red:#E8001C; --ink:#1a1814; --white:#ffffff; --off:#f7f6f4; --gray:#ebebeb; --muted:#777; --text:#2a2824; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Noto Sans JP', sans-serif; font-weight: 300; background: var(--white); color: var(--text); line-height: 1.85; letter-spacing: 0.04em; }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 3rem; border-bottom: 1px solid rgba(0,0,0,0.07); }
-    nav::before { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.92); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
-    .nav-brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
-    .nav-brand-name { font-family: 'Noto Sans JP'; font-weight: 500; font-size: 1rem; letter-spacing: 0.14em; color: var(--ink); }
-    .logo-mark { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--red); border-radius: 50%; flex-shrink: 0; overflow: hidden; }
-    .logo-mark img { width: 22px; height: 22px; object-fit: contain; filter: brightness(0) invert(1); }
-    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-    .nav-links a { font-size: 0.78rem; letter-spacing: 0.1em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--red); }
-    .product-hero { padding-top: 80px; display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; }
-    .product-photo-main { background: var(--off); overflow: hidden; }
-    .product-photo-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .product-info { padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center; }
-    .product-eyebrow { font-size: 0.68rem; letter-spacing: 0.28em; color: var(--red); text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.7rem; }
-    .product-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--red); }
-    .product-title { font-family: 'Noto Serif JP', serif; font-weight: 400; font-size: clamp(2.4rem, 4vw, 3.6rem); letter-spacing: 0.1em; line-height: 1.3; margin-bottom: 0.4rem; }
-    .product-title-en { font-size: 0.78rem; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase; margin-bottom: 2.4rem; }
-    .product-desc { font-size: 0.95rem; line-height: 2.2; color: var(--text); max-width: 420px; }
-    .product-desc + .product-desc { margin-top: 1.2em; }
-    .product-meta { margin-top: 2.8rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.08); display: flex; flex-direction: column; gap: 0.8rem; }
-    .product-meta-row { display: flex; gap: 1.4rem; align-items: baseline; }
-    .product-meta-label { font-size: 0.68rem; letter-spacing: 0.16em; color: var(--red); text-transform: uppercase; font-weight: 500; width: 80px; flex-shrink: 0; }
-    .product-meta-val { font-size: 0.88rem; color: var(--text); }
-    .gallery-section { padding: 5rem 3rem; background: var(--off); }
-    .gallery-inner { max-width: 1000px; margin: 0 auto; }
-    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
-    .gallery-item { aspect-ratio: 1; overflow: hidden; background: var(--gray); }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
-    .gallery-item:hover img { transform: scale(1.05); }
-    .section-label { font-size: 0.68rem; letter-spacing: 0.22em; color: var(--red); text-transform: uppercase; font-weight: 500; }
-    .back-link { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.78rem; letter-spacing: 0.12em; color: var(--muted); text-decoration: none; margin-bottom: 2rem; transition: color 0.2s; }
-    .back-link::before { content: '←'; color: var(--red); }
-    .back-link:hover { color: var(--red); }
-    footer { background: var(--ink); padding: 2.4rem 3rem; display: flex; justify-content: space-between; align-items: center; }
-    .footer-brand { display: flex; align-items: center; gap: 0.7rem; }
-    .footer-name { font-family: 'Noto Sans JP'; font-weight: 400; font-size: 0.95rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.7); }
-    footer p { font-size: 0.7rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; }
-    /* ── HAMBURGER ── */
-    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 201; position: relative; }
-    .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: transform 0.3s, opacity 0.3s; }
-    .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .nav-toggle.open span:nth-child(2) { opacity: 0; }
-    .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-    @media (max-width: 768px) { nav { padding: 1rem 1.4rem; } .nav-toggle { display: block; } .nav-links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.97); flex-direction: column; justify-content: center; align-items: center; gap: 2.4rem; z-index: 200; } .nav-links.open { display: flex; } .nav-links a { font-size: 1.05rem; letter-spacing: 0.12em; color: var(--ink); } .product-hero { grid-template-columns: 1fr; } .product-info { padding: 3rem 1.5rem; } .gallery-section { padding: 4rem 1.5rem; } .gallery-grid { grid-template-columns: repeat(2, 1fr); } footer { flex-direction: column; gap: 1rem; text-align: center; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>牛鬼 — 宇和はりこ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --red:#E8001C; --ink:#1a1814; --white:#ffffff; --off:#f7f6f4; --gray:#ebebeb; --muted:#777; --text:#2a2824; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans JP', sans-serif; font-weight: 300; background: var(--white); color: var(--text); line-height: 1.85; letter-spacing: 0.04em; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 3rem; border-bottom: 1px solid rgba(0,0,0,0.07); }
+nav::before { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.92); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.nav-brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+.nav-brand-name { font-family: 'Noto Sans JP'; font-weight: 500; font-size: 1rem; letter-spacing: 0.14em; color: var(--ink); }
+.logo-mark { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--red); border-radius: 50%; flex-shrink: 0; overflow: hidden; }
+.logo-mark img { width: 22px; height: 22px; object-fit: contain; filter: brightness(0) invert(1); }
+.nav-links { display: flex; gap: 2.2rem; list-style: none; }
+.nav-links a { font-size: 0.78rem; letter-spacing: 0.1em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--red); }
+.product-hero { padding-top: 80px; display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; }
+.product-photo-main { background: var(--off); overflow: hidden; }
+.product-photo-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.product-info { padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center; }
+.product-eyebrow { font-size: 0.68rem; letter-spacing: 0.28em; color: var(--red); text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.7rem; }
+.product-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--red); }
+.product-title { font-family: 'Noto Serif JP', serif; font-weight: 400; font-size: clamp(2.4rem, 4vw, 3.6rem); letter-spacing: 0.1em; line-height: 1.3; margin-bottom: 0.4rem; }
+.product-title-en { font-size: 0.78rem; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase; margin-bottom: 2.4rem; }
+.product-desc { font-size: 0.95rem; line-height: 2.2; color: var(--text); max-width: 420px; }
+.product-desc + .product-desc { margin-top: 1.2em; }
+.product-meta { margin-top: 2.8rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.08); display: flex; flex-direction: column; gap: 0.8rem; }
+.product-meta-row { display: flex; gap: 1.4rem; align-items: baseline; }
+.product-meta-label { font-size: 0.68rem; letter-spacing: 0.16em; color: var(--red); text-transform: uppercase; font-weight: 500; width: 80px; flex-shrink: 0; }
+.product-meta-val { font-size: 0.88rem; color: var(--text); }
+.gallery-section { padding: 5rem 3rem; background: var(--off); }
+.gallery-inner { max-width: 1000px; margin: 0 auto; }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+.gallery-item { aspect-ratio: 1; overflow: hidden; background: var(--gray); }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+.gallery-item:hover img { transform: scale(1.05); }
+.section-label { font-size: 0.68rem; letter-spacing: 0.22em; color: var(--red); text-transform: uppercase; font-weight: 500; }
+.back-link { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.78rem; letter-spacing: 0.12em; color: var(--muted); text-decoration: none; margin-bottom: 2rem; transition: color 0.2s; }
+.back-link::before { content: '←'; color: var(--red); }
+.back-link:hover { color: var(--red); }
+footer { background: var(--ink); padding: 2.4rem 3rem; display: flex; justify-content: space-between; align-items: center; }
+.footer-brand { display: flex; align-items: center; gap: 0.7rem; }
+.footer-name { font-family: 'Noto Sans JP'; font-weight: 400; font-size: 0.95rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.7); }
+footer p { font-size: 0.7rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; }
+/* ── HAMBURGER ── */
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 201; position: relative; }
+.nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: transform 0.3s, opacity 0.3s; }
+.nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+@media (max-width: 768px) { nav { padding: 1rem 1.4rem; } .nav-toggle { display: block; } .nav-links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.97); flex-direction: column; justify-content: center; align-items: center; gap: 2.4rem; z-index: 200; } .nav-links.open { display: flex; } .nav-links a { font-size: 1.05rem; letter-spacing: 0.12em; color: var(--ink); } .product-hero { grid-template-columns: 1fr; } .product-info { padding: 3rem 1.5rem; } .gallery-section { padding: 4rem 1.5rem; } .gallery-grid { grid-template-columns: repeat(2, 1fr); } footer { flex-direction: column; gap: 1rem; text-align: center; } }
+</style>
 </head>
 <body>
 
-  <nav>
-    <a class="nav-brand" href="uwa-hariko.html">
-      <span class="logo-mark"><img src="nami.png" alt="宇和はりこ"></span>
-      <span class="nav-brand-name">宇和はりこ</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="uwa-hariko.html">ホーム</a></li>
-<li><a href="uwa-hariko.html#about">工房について</a></li>
-      <li><a href="uwa-hariko.html#process">張子ができるまで</a></li>
-      <li><a href="works.html" style="color:var(--red);">作品</a></li>
-      <li><a href="uwa-hariko.html#news">お知らせ</a></li>
-      <li><a href="stores.html">委託店舗</a></li>
-      <li><a href="kashira.html">カシラ製作</a></li>
-      <li><a href="mailto:uwahariko@gmail.com">お問い合わせ</a></li>
-      <li><a href="https://www.instagram.com/uwa_hariko/" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
-      </a></li>
-    </ul>
-    <button class="nav-toggle" aria-label="メニュー" id="navToggle"><span></span><span></span><span></span></button>
-  </nav>
+<nav>
+  <a class="nav-brand" href="uwa-hariko.html">
+    <span class="logo-mark"><img src="nami.png" alt="宇和はりこ"></span>
+    <span class="nav-brand-name">宇和はりこ</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="uwa-hariko.html">ホーム</a></li>
+    <li><a href="uwa-hariko.html#about">工房について</a></li>
+    <li><a href="uwa-hariko.html#process">張子ができるまで</a></li>
+    <li><a href="works.html" style="color:var(--red);">作品</a></li>
+    <li><a href="uwa-hariko.html#news">お知らせ</a></li>
+    <li><a href="stores.html">委託店舗</a></li>
+    <li><a href="kashira.html">カシラ製作</a></li>
+    <li><a href="mailto:uwahariko@gmail.com">お問い合わせ</a></li>
+    <li><a href="https://www.instagram.com/uwa_hariko/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
+    </a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="メニュー" id="navToggle"><span></span><span></span><span></span></button>
+</nav>
 
-  <div class="product-hero">
-    <div class="product-photo-main">
-      <img src="ushioni1.jpg" alt="牛鬼">
-    </div>
-    <div class="product-info">
-      <a class="back-link" href="works.html">作品一覧に戻る</a> &nbsp;|&nbsp; <a href="uwa-hariko.html" style="font-size:0.78rem;letter-spacing:0.12em;color:var(--red);text-decoration:none;">ホームへ</a>
-      <p class="product-eyebrow">Works</p>
-      <h1 class="product-title">牛鬼</h1>
-      <p class="product-title-en">Ushioni</p>
-      <p class="product-desc">牛鬼は、宇和島藩の祭りに古くから伝わる魔除けの霊獣です。鬼の面に長い首、牛の胴体、剣のような尻尾を持つ恐ろしい姿には、悪いものを遠ざける力があるとされます。</p>
-      <p class="product-desc">祭りでは家々に首を突き込んで悪魔払いをしながら練り歩き、地域を守り続けてきました。そんな南予のシンボルが、暮らしにそっと力強い福をもたらしてくれます。</p>
-      <div class="product-meta">
-        <div class="product-meta-row">
-          <span class="product-meta-label">素材</span>
-          <span class="product-meta-val">新聞紙・胡粉・アクリル絵具</span>
-        </div>
-        <div class="product-meta-row">
-          <span class="product-meta-label">お問い合わせ</span>
-          <span class="product-meta-val"><a href="mailto:uwahariko@gmail.com" style="color:var(--text);">uwahariko@gmail.com</a></span>
-        </div>
+<div class="product-hero">
+  <div class="product-photo-main">
+    <img src="ushioni7.jpg" alt="牛鬼の張子">
+  </div>
+  <div class="product-info">
+    <a class="back-link" href="works.html">作品一覧に戻る</a> &nbsp;|&nbsp; <a href="uwa-hariko.html" style="font-size:0.78rem;letter-spacing:0.12em;color:var(--red);text-decoration:none;">ホームへ</a>
+    <p class="product-eyebrow">Works</p>
+    <h1 class="product-title">牛鬼</h1>
+    <p class="product-title-en">Ushioni</p>
+    <p class="product-desc">牛鬼は、宇和島藩の祭りに古くから伝わる魔除けの霊獣です。鬼の面に長い首、牛の胴体、剣のような尻尾を持つ恐ろしい姿には、悪いものを遠ざける力があるとされます。</p>
+    <p class="product-desc">祭りでは家々に首を突き込んで悪魔払いをしながら練り歩き、地域を守り続けてきました。そんな南予のシンボルが、暮らしにそっと力強い福をもたらしてくれます。</p>
+    <div class="product-meta">
+      <div class="product-meta-row">
+        <span class="product-meta-label">素材</span>
+        <span class="product-meta-val">新聞紙・胡粉・アクリル絵具</span>
+      </div>
+      <div class="product-meta-row">
+        <span class="product-meta-label">お問い合わせ</span>
+        <span class="product-meta-val"><a href="mailto:uwahariko@gmail.com" style="color:var(--text);">uwahariko@gmail.com</a></span>
       </div>
     </div>
   </div>
+</div>
 
-  <section class="gallery-section">
-    <div class="gallery-inner">
-      <p class="section-label">Gallery</p>
-      <div class="gallery-grid">
-        <div class="gallery-item"><img src="ushioni2.jpg" alt="牛鬼"></div>
-        <div class="gallery-item"><img src="ushioni3.jpg" alt="ウシオニ"></div>
-        <div class="gallery-item"><img src="ushioni4.jpg" alt="ウシオニ"></div>
-
-      </div>
+<section class="gallery-section">
+  <div class="gallery-inner">
+    <p class="section-label">Gallery</p>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="ushioni7.jpg" alt="牛鬼の張子"></div>
+      <div class="gallery-item"><img src="ushioni4.jpg" alt="牛鬼の張子"></div>
+      <div class="gallery-item"><img src="ushioni5.jpg" alt="牛鬼の張子"></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <div class="footer-brand">
-      <span class="logo-mark"><img src="nami.png" alt="宇和はりこ"></span>
-      <span class="footer-name">宇和はりこ</span>
-    </div>
-    <div style="display:flex;align-items:center;gap:1.4rem;">
-      <a href="https://www.instagram.com/uwa_hariko/" target="_blank" rel="noopener" aria-label="Instagram" style="color:rgba(255,255,255,0.5);">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
-      </a>
-      <p>© 2026 Uwa Hariko. All rights reserved.</p>
-    </div>
-  </footer>
+<footer>
+  <div class="footer-brand">
+    <span class="logo-mark"><img src="nami.png" alt="宇和はりこ"></span>
+    <span class="footer-name">宇和はりこ</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:1.4rem;">
+    <a href="https://www.instagram.com/uwa_hariko/" target="_blank" rel="noopener" aria-label="Instagram" style="color:rgba(255,255,255,0.5);">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <p>© 2026 Uwa Hariko. All rights reserved.</p>
+  </div>
+</footer>
 
-  <script>
-    (function(){
-      var toggle = document.getElementById('navToggle');
-      var links  = document.querySelector('.nav-links');
-      if (!toggle || !links) return;
-      toggle.addEventListener('click', function(){
-        toggle.classList.toggle('open');
-        links.classList.toggle('open');
+<script>
+  (function(){
+    var toggle = document.getElementById('navToggle');
+    var links  = document.querySelector('.nav-links');
+    if (!toggle || !links) return;
+    toggle.addEventListener('click', function(){
+      toggle.classList.toggle('open');
+      links.classList.toggle('open');
+    });
+    links.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        toggle.classList.remove('open');
+        links.classList.remove('open');
       });
-      links.querySelectorAll('a').forEach(function(a){
-        a.addEventListener('click', function(){
-          toggle.classList.remove('open');
-          links.classList.remove('open');
-        });
-      });
-    })();
-  </script>
+    });
+  })();
+</script>
 </body>
 </html>
