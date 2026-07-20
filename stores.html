@@ -12,14 +12,14 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Noto Sans JP', sans-serif; font-weight: 300; background: var(--white); color: var(--text); line-height: 1.85; letter-spacing: 0.04em; }
 
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 3rem; border-bottom: 1px solid rgba(0,0,0,0.07); }
-    nav::before { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.92); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 3rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    nav::before { content: ''; position: absolute; inset: 0; background: rgba(26,24,20,0.97); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
     .nav-brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
-    .nav-brand-name { font-family: 'Noto Sans JP'; font-weight: 500; font-size: 1rem; letter-spacing: 0.14em; color: var(--ink); }
+    .nav-brand-name { font-family: 'Noto Sans JP'; font-weight: 500; font-size: 1rem; letter-spacing: 0.14em; color: var(--white); }
     .logo-mark { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--red); border-radius: 50%; flex-shrink: 0; overflow: hidden; }
     .logo-mark img { width: 22px; height: 22px; object-fit: contain; filter: brightness(0) invert(1); }
     .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-    .nav-links a { font-size: 0.78rem; letter-spacing: 0.1em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a { font-size: 0.78rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--red); }
 
     .page-header { padding: 10rem 3rem 5rem; background: var(--off); }
@@ -60,7 +60,7 @@
     
     /* ── HAMBURGER ── */
     .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 201; position: relative; }
-    .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: transform 0.3s, opacity 0.3s; }
+    .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--white); margin: 5px 0; transition: transform 0.3s, opacity 0.3s; }
     .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
     .nav-toggle.open span:nth-child(2) { opacity: 0; }
     .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
@@ -68,9 +68,9 @@
     @media (max-width: 768px) {
       nav { padding: 1rem 1.4rem; }
       .nav-toggle { display: block; }
-      .nav-links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.97); flex-direction: column; justify-content: center; align-items: center; gap: 2.4rem; z-index: 200; }
+      .nav-links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(26,24,20,0.97); flex-direction: column; justify-content: center; align-items: center; gap: 2.4rem; z-index: 200; }
       .nav-links.open { display: flex; }
-      .nav-links a { font-size: 1.05rem; letter-spacing: 0.12em; color: var(--ink); }
+      .nav-links a { font-size: 1.05rem; letter-spacing: 0.12em; color: var(--white); }
       .page-header { padding: 7rem 1.5rem 3rem; }
       .content-section { padding: 4rem 1.5rem; }
       .stores-grid { grid-template-columns: 1fr; }
@@ -86,14 +86,14 @@
 
   <nav>
     <a class="nav-brand" href="uwa-hariko.html">
-      <span class="logo-mark"><img src="nami.png" alt="宇和はりこ"></span>
+      <span class="logo-mark"><img src="rogo3.png" alt="宇和はりこ"></span>
       <span class="nav-brand-name">宇和はりこ</span>
     </a>
     <ul class="nav-links">
       <li><a href="uwa-hariko.html">ホーム</a></li>
 <li><a href="uwa-hariko.html#about">工房について</a></li>
       <li><a href="uwa-hariko.html#process">張子ができるまで</a></li>
-      <li><a href="uwa-hariko.html#products">作品</a></li>
+      <li><a href="works.html">作品</a></li>
       <li><a href="uwa-hariko.html#news">お知らせ</a></li>
       <li><a href="stores.html" style="color:var(--red);">委託店舗</a></li>
       <li><a href="kashira.html">カシラ製作</a></li>
@@ -184,7 +184,7 @@
 
   <footer>
     <div class="footer-brand">
-      <span class="logo-mark"><img src="nami.png" alt="宇和はりこ"></span>
+      <span class="logo-mark"><img src="rogo3.png" alt="宇和はりこ"></span>
       <span class="footer-name">宇和はりこ</span>
     </div>
     <div style="display:flex;align-items:center;gap:1.4rem;">
