@@ -44,15 +44,15 @@
     .content-section { padding: 6rem 3rem; }
     .content-inner { max-width: 900px; margin: 0 auto; }
 
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3rem; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: stretch; margin-top: 3rem; }
 
     .section-label { font-size: 0.68rem; letter-spacing: 0.22em; color: var(--red); text-transform: uppercase; margin-bottom: 1rem; font-weight: 500; }
     .section-heading { font-family: 'Noto Serif JP', serif; font-weight: 400; font-size: 1.6rem; letter-spacing: 0.1em; margin-bottom: 1.6rem; line-height: 1.5; }
     .body-text { font-size: 0.95rem; line-height: 2.2; color: var(--text); }
     .body-text + .body-text { margin-top: 1.4em; }
 
-    .photo-block { background: var(--gray); overflow: hidden; }
-    .photo-block img { width: 100%; display: block; object-fit: cover; }
+    .photo-block { background: var(--gray); overflow: hidden; height: 100%; }
+    .photo-block img { width: 100%; height: 100%; display: block; object-fit: cover; }
     .photo-placeholder { aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #e8e3dc 0%, #d4cfc8 100%); color: #a09890; font-size: 0.75rem; letter-spacing: 0.15em; }
 
     .info-table { width: 100%; margin-top: 3rem; border-collapse: collapse; }
@@ -67,7 +67,6 @@
     .footer-name { font-family: 'Noto Sans JP'; font-weight: 400; font-size: 0.95rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.7); }
     footer p { font-size: 0.7rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; }
 
-    
     /* ── HAMBURGER ── */
     .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 201; position: relative; }
     .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: transform 0.3s, opacity 0.3s; }
@@ -101,7 +100,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="uwa-hariko.html">ホーム</a></li>
-<li><a href="uwa-hariko.html#about">工房について</a></li>
+      <li><a href="uwa-hariko.html#about">工房について</a></li>
       <li><a href="uwa-hariko.html#process">張子ができるまで</a></li>
       <li><a href="uwa-hariko.html#products">作品</a></li>
       <li><a href="uwa-hariko.html#news">お知らせ</a></li>
@@ -112,7 +111,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
       </a></li>
     </ul>
-      <button class="nav-toggle" aria-label="メニュー" id="navToggle"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" aria-label="メニュー" id="navToggle"><span></span><span></span><span></span></button>
   </nav>
 
   <div class="page-header">
@@ -132,11 +131,10 @@
           <h2 class="section-heading">宇和はりことは</h2>
           <p class="body-text">宇和はりこは、愛媛県西予市宇和町のはりこ工房。山里の静かな空気の中で、ひとつひとつ丁寧に張子をつくっています。</p>
           <p class="body-text">素朴でかわいらしいフォルムの動物たちが、その土地の記憶と人の祈りを宿して、生まれ続けています。</p>
-          <p class="body-text">テキストが入ります。工房の歴史や作り手の想いなど、詳しい内容をここに記述してください。</p>
         </div>
         <div>
           <div class="photo-block">
-            <img src="kobo1.jpg" alt="工房外観" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
+            <img src="kobo1.jpg" alt="工房外観">
           </div>
         </div>
       </div>
@@ -156,7 +154,7 @@
         </div>
         <div>
           <div class="photo-block">
-            <img src="kobo2.jpg" alt="店内の様子" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
+            <img src="kobo2.jpg" alt="店内の様子">
           </div>
         </div>
       </div>
