@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>写真撮影 — 宇和はりこ</title>
+  <title>「sui & 古道具『余白』」ポップアップ出展 — 宇和はりこ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -28,17 +28,23 @@
     .post-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.4rem; }
     .post-date { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; }
     .post-cat { font-size: 0.65rem; letter-spacing: 0.12em; color: var(--white); background: var(--red); padding: 0.2em 0.8em; }
-    .post-title { font-family: 'Noto Serif JP', serif; font-weight: 400; font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: 0.08em; line-height: 1.5; }
+    .post-title { font-family: 'Noto Serif JP', serif; font-weight: 400; font-size: clamp(1.4rem, 2.8vw, 2.2rem); letter-spacing: 0.08em; line-height: 1.6; }
     .post-body { padding: 5rem 3rem 7rem; }
     .post-body-inner { max-width: 740px; margin: 0 auto; }
     .post-image { width: 100%; margin-bottom: 3rem; overflow: hidden; background: var(--gray); }
     .post-image img { width: 100%; display: block; }
+    .post-image + .post-image { margin-top: -2rem; }
     .post-text { font-size: 0.95rem; line-height: 2.4; color: var(--text); }
     .post-text p { margin-bottom: 1.8em; }
+    .event-info { margin: 2.4rem 0; padding: 1.8rem 2rem; background: var(--off); border-left: 3px solid var(--red); }
+    .event-info h3 { font-size: 0.72rem; letter-spacing: 0.18em; color: var(--red); text-transform: uppercase; margin-bottom: 1rem; font-weight: 500; }
+    .event-info dl { display: grid; grid-template-columns: 4em 1fr; gap: 0.6rem 1.2rem; font-size: 0.88rem; }
+    .event-info dt { color: var(--muted); font-size: 0.78rem; padding-top: 0.1em; }
     .post-nav { margin-top: 5rem; padding-top: 2.4rem; border-top: 1px solid rgba(0,0,0,0.08); display: flex; justify-content: space-between; align-items: center; }
-    .post-nav a { font-size: 0.78rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; }
+    .post-nav a { font-size: 0.78rem; letter-spacing: 0.1em; color: var(--muted); text-decoration: none; transition: color 0.2s; max-width: 45%; }
     .post-nav a:hover { color: var(--red); }
     .post-nav .prev::before { content: '← '; color: var(--red); }
+    .post-nav .next::after { content: ' →'; color: var(--red); }
     footer { background: var(--ink); padding: 2.4rem 3rem; display: flex; justify-content: space-between; align-items: center; }
     .footer-brand { display: flex; align-items: center; gap: 0.7rem; }
     .footer-name { font-family: 'Noto Sans JP'; font-weight: 400; font-size: 0.95rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.7); }
@@ -56,6 +62,8 @@
       .nav-links a { font-size: 1.05rem; letter-spacing: 0.12em; color: var(--white); }
       .page-header { padding: 7rem 1.5rem 3rem; }
       .post-body { padding: 3rem 1.5rem 5rem; }
+      .event-info dl { grid-template-columns: 1fr; gap: 0.2rem; }
+      .event-info dt { margin-top: 0.8rem; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
     }
   </style>
@@ -72,7 +80,6 @@
       <li><a href="uwa-hariko.html#process">張子ができるまで</a></li>
       <li><a href="works.html">作品</a></li>
       <li><a href="uwa-hariko.html#news" style="color:var(--red);">お知らせ</a></li>
-      
       <li><a href="kashira.html">カシラ製作</a></li>
       <li><a href="uwa-hariko.html#contact">お問い合わせ</a></li>
       <li><a href="https://www.instagram.com/uwa_hariko/" target="_blank" rel="noopener" aria-label="Instagram">
@@ -86,24 +93,39 @@
     <div class="page-header-inner">
       <a class="back-link" href="#" onclick="history.back(); return false;">お知らせ一覧に戻る</a>
       <div class="post-meta">
-        <span class="post-date">2026.07.28</span>
-        <span class="post-cat">お知らせ</span>
+        <span class="post-date">2026.07.31</span>
+        <span class="post-cat">イベント</span>
       </div>
-      <h1 class="post-title">写真撮影</h1>
+      <h1 class="post-title">「sui &amp; 古道具『余白』」ポップアップに宇和はりこを出展します</h1>
     </div>
   </div>
 
   <div class="post-body">
     <div class="post-body-inner">
       <div class="post-image">
-        <img src="P7182437.jpg" alt="メンバー写真">
+        <img src="sui-popup-1.jpg" alt="sui &amp; 古道具『余白』ポップアップ">
       </div>
       <div class="post-text">
-        <p>メンバーが増えたので、久しぶりにみんなで写真を撮りました。地元にゆかりある子たちも増えて、にぎやかになってきました。</p>
+        <p>このたび、花と暮らしの道具店 sui 様と古道具屋『余白』様によるポップアップイベントに、sui 様のブースにて宇和はりこを出展させていただくことになりました。</p>
+        <p>花や器、古道具が並ぶ空間の中で、はりこたちがどのような表情を見せてくれるのか、私たちも楽しみにしております。お近くにお越しの際は、ぜひお手に取ってご覧ください。</p>
+      </div>
+      <div class="event-info">
+        <h3>開催概要</h3>
+        <dl>
+          <dt>会期</dt>
+          <dd>2026年8月7日（金）〜 8月12日（水）</dd>
+          <dt>時間</dt>
+          <dd>10:00〜18:00（最終日は16:00まで）</dd>
+          <dt>会場</dt>
+          <dd>無印良品オズメッセ<br>愛媛県大洲市東大洲1587-1</dd>
+        </dl>
+      </div>
+      <div class="post-image" style="margin-top:3rem;">
+        <img src="sui-popup-2.jpg" alt="sui &amp; 古道具『余白』フライヤー">
       </div>
       <div class="post-nav">
-        <a class="prev" href="news-togyu.html">闘牛のハリコ、完成しました。</a>
-        <a class="next" href="news-sui-popup.html" style="font-size:0.78rem;letter-spacing:0.1em;color:var(--muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--muted)'">「sui &amp; 古道具『余白』」ポップアップ出展<span style="color:var(--red);"> →</span></a>
+        <a class="prev" href="news-member.html">写真撮影</a>
+        <a class="next" href="news-summer.html">8月の休業日について</a>
       </div>
     </div>
   </div>
