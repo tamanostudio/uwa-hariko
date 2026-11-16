@@ -50,6 +50,11 @@
     .post-nav .prev::before { content: '← '; color: var(--red); }
     .post-nav .next::after { content: ' →'; color: var(--red); }
 
+    .post-home { margin-top: 3.2rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .post-home a { display: inline-block; min-width: 11rem; text-align: center; padding: 0.85rem 1.8rem; font-size: 0.8rem; letter-spacing: 0.14em; text-decoration: none; border: 1px solid var(--ink); color: var(--ink); transition: background 0.2s, color 0.2s, border-color 0.2s; }
+    .post-home a:hover { background: var(--red); border-color: var(--red); color: var(--white); }
+    .post-home a.primary { background: var(--ink); color: var(--white); }
+    .post-home a.primary:hover { background: var(--red); border-color: var(--red); }
     footer { background: var(--ink); padding: 2.4rem 3rem; display: flex; justify-content: space-between; align-items: center; }
     .footer-brand { display: flex; align-items: center; gap: 0.7rem; }
     .footer-name { font-family: 'Noto Sans JP'; font-weight: 400; font-size: 0.95rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.7); }
@@ -100,7 +105,7 @@
 
   <div class="page-header">
     <div class="page-header-inner">
-      <a class="back-link" href="#" onclick="history.back(); return false;">お知らせ一覧に戻る</a>
+      <a class="back-link" href="news.html">お知らせ一覧に戻る</a>
       <div class="post-meta">
         <span class="post-date">2026.06.18</span>
         <span class="post-cat">イベント</span>
@@ -127,15 +132,19 @@
         <a class="prev" href="news-post.html">６月ポップアップのお知らせ</a>
         <span></span>
       </div>
+      <div class="post-home">
+        <a class="primary" href="uwa-hariko.html">ホームに戻る</a>
+        <a href="news.html">お知らせ一覧へ</a>
+      </div>
 
     </div>
   </div>
 
   <footer>
-    <div class="footer-brand">
+    <a class="footer-brand" href="uwa-hariko.html" aria-label="ホームに戻る" style="text-decoration:none;">
       <span class="logo-mark"><img src="rogo3.png" alt="宇和はりこ"></span>
       <span class="footer-name">宇和はりこ</span>
-    </div>
+    </a>
     <div style="display:flex;align-items:center;gap:1.4rem;">
       <a href="https://www.instagram.com/uwa_hariko/" target="_blank" rel="noopener" aria-label="Instagram" style="color:rgba(255,255,255,0.5);">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
